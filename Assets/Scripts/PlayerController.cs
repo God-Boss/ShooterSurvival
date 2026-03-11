@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
     public float velocidad = 5f;
     public float sensibilidad = 100f;
     public Animator animator;
-    public GameObject bulletPrefab;
     public Transform mirilla;
 
     private PlayerInputActions inputActions;
@@ -57,15 +56,16 @@ public class PlayerController : MonoBehaviour
 
     void Disparar()
     {
-        if (bulletPrefab != null && mirilla != null)
+        if (mirilla != null)
         {
-            // Si está quieto, hacer animación
             if (inputMovimiento.magnitude < 0.1f && animator != null)
             {
                 animator.SetTrigger("Shoot");
             }
 
-            Instantiate(bulletPrefab, mirilla.position, mirilla.rotation);
+            GameObject bullet = BulletPool.Instance.GetBullet();
+            bullet.transform.position = mirilla.position;
+            bullet.transform.rotation = mirilla.rotation;
         }
     }
 

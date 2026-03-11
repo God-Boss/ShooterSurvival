@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Derrota.unity
+    guid: 3d6aa7a36a4e60b4988e21d3f5a6f29a
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 0debed1c25bb7d7459d0787dc6a4c3b7
+  - enabled: 1
+    path: Assets/Scenes/Controles.unity
+    guid: f958024e78e814042a25a52bd6c4a897
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 424c8a679b5e69e409110e0720fb586d
+  - enabled: 1
     path: Assets/Scenes/Juego.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: c6a392dd8985a9b44a05edaae46ef609
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
