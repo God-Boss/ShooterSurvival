@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 
     private float vidaActual;
     private Animator animator;
+    private bool estaMuerto = false;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class Health : MonoBehaviour
 
     public void RecibirDanio(float danio)
     {
+        if (estaMuerto) return;
+
         vidaActual -= danio;
 
         if (vidaActual <= 0)
@@ -26,6 +29,9 @@ public class Health : MonoBehaviour
 
     void Morir()
     {
+        if (estaMuerto) return;
+        estaMuerto = true;
+
         if (animator != null)
         {
             animator.SetTrigger("Death");

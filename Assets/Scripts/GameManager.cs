@@ -7,14 +7,18 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public TextMeshProUGUI textoEnemigos;
-    public GameObject panelVictoria;
 
     private int enemigosRestantes;
 
     void Awake()
     {
         Instance = this;
-        enemigosRestantes = FindObjectsByType<EnemyAI>(FindObjectsSortMode.None).Length;
+    }
+
+    void Start()
+    {
+        EnemyAI[] enemigos = FindObjectsOfType<EnemyAI>();
+        enemigosRestantes = enemigos.Length;
         ActualizarUI();
     }
 
@@ -44,11 +48,8 @@ public class GameManager : MonoBehaviour
 
     void Victoria()
     {
-        Time.timeScale = 0f;
-        if (panelVictoria != null)
-        {
-            panelVictoria.SetActive(true);
-        }
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Win");
     }
 
     void Derrota()
